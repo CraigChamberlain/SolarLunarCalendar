@@ -1,7 +1,11 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
+title: 1700
 layout: home
+year: y1700
 ---
-{{ site.data.Years.y1700 | inspect }}
+## Year: {{page.title}}
+{% assign months = site.data.years[page.year] %}
+
+{% for month in months %}
+{{ month.Month }}: {{ month.Days}}
+{% endfor %}
