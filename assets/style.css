@@ -6,31 +6,63 @@ h1{border:aliceblue dotted 10px;}
 ol {
     list-style: none;
 }
-.month:first-of-type .phase{
-    justify-content: center;
-
+.calendar {
+  width: 90%;
+  margin: auto;
+  padding-left: 0px;
 }
+
+.calendar > :first-child {
+    border-bottom: double 2px;
+}
+
+.phase:first-child {
+    border-left: double 2px;
+}
+
+
+.month:first-of-type .phase {
+    justify-content: left;
+    text-align: left;
+    padding: 10px 0px;
+}
+.month:first-of-type .phase h2{
+      -epub-writing-mode: tb-rl;
+      -ms-writing-mode: tb-rl;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+      -ms-transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      white-space: nowrap;
+      margin-left: 2px;
+      color: silver;
+}
+
+
 .month,.month ol {
-    display: flex; 
-    justify-content: space-around;
+    display: flex;
+    justify-content: space-evenly;
 }
 .month {
     border-bottom: silver dotted 1px;
-}
-.month > h2 {width: 3%;}
-.month ol {width: 90%;}
-.phase{
-    display: flex; 
-    justify-content: left;
     background-color: #d9d9d9;
-    width: 23%;
 }
-.phase:nth-child(odd){
+.month:nth-child(odd){
     background-color: #f9f4e7;
 }
+.month > h2 {width: 3%; align-self: center;}
+.month ol {width: 90%;padding-left: 0px;}
+.phase{
+    display: flex;
+    justify-content: left;
+    flex: 1 1 0px;
+    border-left: silver 1px dotted;
+}
+
 .phase h3, .month h2 {font-size: small;}
 .phase--1{
     justify-content: right;
 }
-.day {width: 11%;}
+.day {width: 12%;}
 a, a:active, a:hover {text-decoration: none; color: #454748;}

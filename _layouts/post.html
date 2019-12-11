@@ -4,7 +4,7 @@ layout: home
 
 {%- assign  year = page.title | prepend: "y" -%}
 {%- assign months = site.data.years[year] -%}
-<ol>
+<ol class="calendar">
     <li class="month" >
         <h2 id="month-title">Month</h2>
         <ol>
@@ -39,7 +39,7 @@ layout: home
             {%- endfor -%}
             {%- if month.Month != 0 and partial-month > 0 -%}
                 {%- assign start = 4 | minus: partial-month -%}
-                {%- for phase in (start..3) -%} 
+                {%- for phase in (start..3) -%}
                 <div class="phase phase-{{ phase }}"></div>
                 {% endfor -%}
             {%- endif %}
