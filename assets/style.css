@@ -6,11 +6,30 @@ h1{border:aliceblue dotted 10px;}
 ol {
     list-style: none;
 }
-.calendar {
+
+.decade-links, .year-links{
+  justify-content: space-between;
+  flex-flow: wrap;
+
+}
+.decade-links>li{
+  flex: 1 1 5%;
+}
+
+.calendar, .decade-links, .year-links {
   width: 90%;
   margin: auto;
   padding-left: 0px;
 }
+
+.decade-links a:hover, .year-links a:hover{
+  text-decoration: underline;
+}
+
+.active{
+  color: silver;
+}
+
 
 .calendar > :first-child {
     border-bottom: double 2px;
@@ -40,7 +59,7 @@ ol {
 }
 
 
-.month,.month ol {
+.month,.month ol, .year-links, .decade-links {
     display: flex;
     justify-content: space-evenly;
 }

@@ -1,0 +1,28 @@
+<ol class="decade-links">
+{%- assign page-decade = page.title | truncate: 3, "" | to_integer -%}
+{%- for decade in (170..208) -%}
+  <li>
+  {%- assign year = decade | append: 0 -%}
+  {%- if decade == page-decade -%}
+    <a href="#" class="active">{{ year }}</a>
+  {%- else -%}
+    <a href="{{ '/year/' | append: year | relative_url  }}">{{ year }}</a>
+  {%- endif -%}
+  </li>
+{%- endfor -%}
+  <li></li>
+</ol>
+<ol class="year-links">
+{%- for year in (0..9) -%}
+  {%- assign full-year = page-decade | append: year -%}
+  {%- if full-year == "2083" %}{% break %}{% endif -%}
+  <li>
+  {%- if full-year == page.title  -%}
+    <a href="#" class="active">{{ full-year }}</a>
+  {%- else -%}
+    <a href="{{ '/year/' | append: full-year | relative_url  }}">{{ full-year }}</a>
+  {%- endif -%}
+  </li>
+{%- endfor -%}
+
+</ol>
