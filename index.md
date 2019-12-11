@@ -1,11 +1,4 @@
 ---
-title: 1700
+title: Lunar Solar Calendar
 layout: home
-year: y1700
 ---
-## Year: {{page.title}}
-{% assign months = site.data.years[page.year] %}
-
-{% for month in months %}
-{{ month.Month }}: {{ month.Days}}
-{% endfor %}

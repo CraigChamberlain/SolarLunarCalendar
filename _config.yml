@@ -24,7 +24,18 @@ url: "https://craigchamberlain.github.io/SolarLunarCalendar/" # the base hostnam
 twitter_username: jekyllrb
 github_username:  jekyll
 
+defaults:
+  -
+    scope:
+      path: "_posts/year"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "year"
+
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: /:categories/:title:output_ext
 
+sass:
+  style: compressed

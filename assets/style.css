@@ -1,0 +1,36 @@
+body{
+    color: #6a6661;
+    text-align: center;
+}
+h1{border:aliceblue dotted 10px;}
+ol {
+    list-style: none;
+}
+.month:first-of-type .phase{
+    justify-content: center;
+
+}
+.month,.month ol {
+    display: flex; 
+    justify-content: space-around;
+}
+.month {
+    border-bottom: silver dotted 1px;
+}
+.month > h2 {width: 3%;}
+.month ol {width: 90%;}
+.phase{
+    display: flex; 
+    justify-content: left;
+    background-color: #d9d9d9;
+    width: 23%;
+}
+.phase:nth-child(odd){
+    background-color: #f9f4e7;
+}
+.phase h3, .month h2 {font-size: small;}
+.phase--1{
+    justify-content: right;
+}
+.day {width: 11%;}
+a, a:active, a:hover {text-decoration: none; color: #454748;}
