@@ -83,5 +83,41 @@ ol {
 .phase--1{
     justify-content: right;
 }
-.day {width: 12%;}
-a, a:active, a:hover {text-decoration: none; color: #454748;}
+.day {width: 12%; position: relative;}
+
+a, a:active, a:hover {text-decoration: none; color: #454748; }
+
+
+
+.date-details {
+  display:none;
+  position: absolute;
+  background-color: white;
+  border: silver solid;
+  padding: 10px;
+  top: 40px;
+  text-align: left;
+  z-index: 100;
+}
+
+.date-details dt { 
+  text-decoration: underline;
+
+}
+
+.date-details dd {
+  margin:0px;
+
+}
+.date-details dt:after{
+
+  content: "\003A";
+}
+
+div.day:hover .date-details{
+    display: block;
+    
+}
+div.day:hover h3{
+  text-decoration: underline;  
+}
