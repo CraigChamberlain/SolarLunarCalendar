@@ -30,12 +30,14 @@
                         {%- assign solar-lunar-date = year | append: "-" | append: month.Month | append: "-" | append: date -%}
                         <div class="day" >
                             <li><h3>{{ date }}</h3></li>
-                            <dl class="date-details">
-                                    <dt class="solar-lunar-date">Solar Lunar Date</dt>
-                                    <dd class="solar-lunar-date">{{ solar-lunar-date }}</dd>
-                                    <dt class="gregorian-date">Gregorian Calendar Date</dt>
-                                    <dd class="gregorian-date">{{ gregorian-date | date_to_long_string: 'ordinal' }}</dd>
-                            </dl>     
+                            <div class="detail-wrapper">
+                                <dl class="date-details">
+                                        <dt class="solar-lunar-date">Solar Lunar Date</dt>
+                                        <dd class="solar-lunar-date">{{ solar-lunar-date }}</dd>
+                                        <dt class="gregorian-date">Gregorian Calendar Date</dt>
+                                        <dd class="gregorian-date">{{ gregorian-date | date_to_long_string: 'ordinal' }}</dd>
+                                </dl> 
+                            </div>    
                         </div>
 
                     {%- assign gregorian-date = gregorian-date | date: "%s" | plus: 86400 %}

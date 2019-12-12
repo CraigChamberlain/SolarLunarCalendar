@@ -83,11 +83,13 @@ ol {
 .phase--1{
     justify-content: right;
 }
-.day {width: 12%; position: relative;}
+.day {width: 12%; }
 
 a, a:active, a:hover {text-decoration: none; color: #454748; }
 
-
+.detail-wrapper{
+  position: relative;
+}
 
 .date-details {
   display:none;
@@ -95,9 +97,11 @@ a, a:active, a:hover {text-decoration: none; color: #454748; }
   background-color: white;
   border: silver solid;
   padding: 10px;
-  top: 40px;
   text-align: left;
   z-index: 100;
+}
+.day:nth-last-child(-n+3) .date-details {
+  right: 0px;
 }
 
 .date-details dt { 
