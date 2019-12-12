@@ -1,6 +1,10 @@
 <ol class="decade-links">
-{%- assign page-decade = page.title | truncate: 3, "" | to_integer -%}
-{%- for decade in (170..208) -%}
+{%- if page.title == "Lunar Solar Calendar" -%}
+  {%- assign page-decade = "now" | date: "%Y" | truncate: 3, "" | to_integer -%}
+{%- else -%}
+  {%- assign page-decade = page.title | truncate: 3, "" | to_integer -%}
+{%- endif -%}
+  {%- for decade in (170..208) -%}
   <li>
   {%- assign year = decade | append: 0 -%}
   {%- if decade == page-decade -%}

@@ -1,0 +1,58 @@
+{%- assign months = site.data.years[include.year] -%}
+{%- assign year = include.year | remove: "y"  -%}
+<ol class="calendar">
+    <li class="month" >
+        <h2 id="month-title">Month</h2>
+        <ol>
+            <div class="phase phase-0"><h2>New Moon</h2></div>
+            <div class="phase phase-1"><h2>Waxing Cressent</h2></div>
+            <div class="phase phase-2"><h2>Full Moon</h2></div>
+            <div class="phase phase-3"><h2>Waining Cressent</h2></div>
+        </ol>
+    </li>
+{%- for month in months %}
+    <li class="month" >
+        <h2 id="month-{{month.Month}}">{{ month.Month }}: </h2>
+        {%- assign date = 1 %}
+        <ol>
+            {%- assign partial-month = month.Phases | size | minus: 4 | abs -%}
+            {%- if month.Month == 0 and partial-month > 0 -%}
+                {%- assign start = partial-month | minus: 1 -%}
+                {%- for phase in (0..start) -%}
+                     <div class="phase phase-{{ phase }}"></div>
+                {%- endfor -%}
+            {%- endif -%}
+            {%- for phase in month.Phases %}
+                <div class="phase phase-{{ phase.Phase }}">
+                    {%- assign gregorian-date = phase.FirstDay -%}
+                    
+                    {%- for Day in (1..phase.Days) %}
+                        {%- assign solar-lunar-date = year | append: "-" | append: month.Month | append: "-" | append: date -%}
+                        <div class="day" >
+                            <li><h3>{{ date }}</h3></li>
+                            <dl class="date-details">
+                                    <dt class="solar-lunar-date">Solar Lunar Date</dt>
+                                    <dd class="solar-lunar-date">{{ solar-lunar-date }}</dd>
+                                    <dt class="gregorian-date">Gregorian Calendar Date</dt>
+                                    <dd class="gregorian-date">{{ gregorian-date | date_to_long_string: 'ordinal' }}</dd>
+                            </dl>     
+                        </div>
+
+                    {%- assign gregorian-date = gregorian-date | date: "%s" | plus: 86400 %}
+                    {%- assign date = date | plus: 1 -%}
+
+                    {%- endfor %}
+                </div>
+ 
+                
+            {%- endfor -%}
+            {%- if month.Month != 0 and partial-month > 0 -%}
+                {%- assign start = 4 | minus: partial-month -%}
+                {%- for phase in (start..3) -%}
+                <div class="phase phase-{{ phase }}"></div>
+                {% endfor -%}
+            {%- endif %}
+        </ol>
+    </li>
+{%- endfor -%}
+</ol>
