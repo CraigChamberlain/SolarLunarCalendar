@@ -18,12 +18,34 @@ ol {
   flex-flow: wrap;
 
 }
-.decade-links>li{
-  flex: 1 1 5%;
+.year-links li, .decade-links>li{
+  flex: 1 1 20%;
+}
+.year-links {
+  margin: 4px 0%
+}
+@media (min-width: 500px) and (max-width: 999px){
+  .year-links li, .decade-links>li{
+    flex: 1 1 10%;
+  }
+
+}
+
+@media (min-width: 1000px){
+  .year-links li, .decade-links>li{
+    flex: 1 1 5%;
+  }
+  .year-links {
+    margin: 8px .6%
+  }
+  .year-links li{
+    flex: none;
+  }
+
+
 }
 
 .calendar, .decade-links, .year-links {
-  margin: auto;
   padding-left: 0px;
 }
 
@@ -31,7 +53,7 @@ ol {
   text-decoration: underline;
 }
 
-.year-links {margin: 8px .6%}
+
 
 .active{
   color: silver;
