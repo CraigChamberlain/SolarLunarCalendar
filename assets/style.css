@@ -2,13 +2,17 @@ body{
     color: #6a6661;
     text-align: center;
 }
-h1{border:aliceblue dotted 10px;}
+
+h1{
+  border:aliceblue dotted 10px;
+}
+
 ol {
     list-style: none;
 }
 
 .wrapper{
-  width: 90%;
+  width: 98%;
   margin: auto;
 }
 
@@ -18,17 +22,19 @@ ol {
   flex-flow: wrap;
 
 }
+
 .year-links li, .decade-links>li{
   flex: 1 1 20%;
 }
+
 .year-links {
   margin: 4px 0%
 }
+
 @media (min-width: 500px) and (max-width: 999px){
   .year-links li, .decade-links>li{
     flex: 1 1 10%;
   }
-
 }
 
 @media (min-width: 1000px){
@@ -41,11 +47,9 @@ ol {
   .year-links li{
     flex: none;
   }
-
-
 }
 
-.calendar, .decade-links, .year-links {
+.calendar, .decade-links, .year-links, .month ol {
   padding-left: 0px;
 }
 
@@ -53,69 +57,38 @@ ol {
   text-decoration: underline;
 }
 
-
-
 .active{
   color: silver;
 }
-
-
-.calendar > :first-child {
-    border-bottom: double 2px;
-}
-
-.phase:first-child {
-    border-left: double 2px;
-}
-
-
-.month:first-of-type .phase {
-    justify-content: left;
-    text-align: left;
-    padding: 10px 0px;
-}
-.month:first-of-type .phase h2{
-      -epub-writing-mode: tb-rl;
-      -ms-writing-mode: tb-rl;
-      -webkit-writing-mode: vertical-rl;
-      writing-mode: vertical-rl;
-      -ms-transform: rotate(180deg);
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg);
-      white-space: nowrap;
-      margin-left: 2px;
-      color: silver;
-}
-
 
 .month,.month ol{
     display: flex;
     justify-content: space-evenly;
 }
+
 .month {
     border-bottom: silver dotted 1px;
     background-color: #d9d9d9;
 }
+
 .month:nth-child(odd){
     background-color: #f9f4e7;
 }
-.month > h2 {width: 50px; align-self: center;}
-.month ol {width: 90%;padding-left: 0px;}
+
 .phase{
     display: flex;
-    justify-content: left;
-    flex: 1 1 0px;
-    border-left: silver 1px dotted;
 }
 
-.phase h3, .month h2 {font-size: small;}
-.phase--1{
-    justify-content: right;
+.phase h3, .month h2 {
+  font-size: small;
 }
-.day {width: 12%; }
 
-a, a:active, a:hover {text-decoration: none; color: #454748; }
+a, a:active, a:hover {
+  text-decoration: none; 
+  color: #454748;
+}
 
+/* Tooltip / Dropdown */
 .detail-wrapper{
   position: relative;
 }
@@ -129,28 +102,128 @@ a, a:active, a:hover {text-decoration: none; color: #454748; }
   text-align: left;
   z-index: 100;
 }
-.phase:last-child .day:nth-last-child(-n+3) .date-details {
-  right: 0px;
-}
 
 .date-details dt { 
   text-decoration: underline;
-
 }
 
 .date-details dd {
   margin:0px;
-
 }
 .date-details dt:after{
-
   content: "\003A";
 }
 
 div.day:hover .date-details{
-    display: block;
-    
+    display: block;   
 }
+
 div.day:hover h3{
   text-decoration: underline;  
+}
+
+.month:first-of-type .phase h2{
+  -epub-writing-mode: tb-rl;
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  white-space: nowrap;
+  margin-left: 2px;
+  color: silver;
+}
+
+@media (max-width: 999px){
+/* portrait orientation */
+
+    .calendar > :first-child {
+      border-right: double 2px;
+    }
+    
+    .month, .month ol, .phase {
+      flex-direction: column;
+    }
+
+    .month{
+      justify-content: flex-start;
+    }
+    .month:not(:first-child){
+      flex: 1;
+    }
+    .phase{
+      height: 230px;
+      border-bottom: silver 1px dotted;
+    }
+    .month:first-of-type .phase h2{
+      margin: 15px 0 0 15px;
+    }
+    .month:first-of-type > h2{
+      margin: auto 5px;
+    }
+
+    .phase:first-child {
+      border-top: double 2px;
+    }
+
+    .phase h3{
+      margin: 6px;
+    }
+
+    .calendar{
+      display: flex;
+    }
+
+    .month:last-child .date-details {
+      right: 0px;
+    }
+}
+
+@media (min-width: 1000px){
+  .wrapper{
+    width: 90%;
+  }
+
+  .calendar > :first-child {
+    border-bottom: double 2px;
+  }
+
+  .phase:first-child {
+      border-left: double 2px;
+  }
+
+  .month:first-of-type .phase {
+      justify-content: left;
+      text-align: left;
+      padding: 10px 0px;
+  }
+
+  .month ol{
+    width: 90%;
+  }
+
+  .month > h2 {
+    width: 50px; 
+    align-self: center;
+  }
+  
+  .day {
+    width: 12%; 
+  }
+ 
+  .phase{
+    justify-content: left;
+    flex: 1 1 0px;
+    border-left: silver 1px dotted;
+  }
+
+  .phase--1{
+    justify-content: right;
+  }
+
+  .phase:last-child .day:nth-last-child(-n+3) .date-details {
+    right: 0px;
+  }
+
 }
