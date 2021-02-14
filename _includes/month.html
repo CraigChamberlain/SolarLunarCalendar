@@ -1,0 +1,21 @@
+{%- assign month = site.data.years[include.year][include.month] -%}
+<section>
+    <h2 id="month-title">Month</h2>
+    <ol>{% assign date = 1 %}
+        {% for phase in site.data.phases %}
+            {% assign index = forloop.index0 %}
+            {% assign phase-data = month.Phases | where: 'Phase', index | first %}
+            {% unless phase-data %}
+                {% assign next-index = index | plus: 1 %}
+                {% assign next-phase = month.Phases | where: 'Phase', next-index | first %}
+                {% if next-index == 5 or next-phase %}
+                {% assign phase-data = month.Phases | where: 'Phase', -1 | first %}
+                {% endif %}
+            {% endunless %}
+            {% include phase.html phase=phase id=index phase-data=phase-data date=date month=include.month %}
+            {% assign date = date + phase.days %}
+        {% endfor %}
+    </ol>
+</section>
+
+            

@@ -1,0 +1,27 @@
+<li class="phase phase-{{forloop.index0}}"><h2>{{phase}}</h2>
+                    
+                    {%- assign gregorian-date = include.phase-data.FirstDay -%}
+                    {%- assign year = gregorian-date | date: "%Y" -%}
+                    {%- assign last-day = include.date | plus: include.phase-data.Days | plus: -1 -%}
+                    <ul class="days">
+                    {%- for day in (include.date..last-day) %}
+                        {%- assign solar-lunar-date = year | append: "-" | append: include.month | append: "-" | append: day -%}
+                        <li class="day" >
+                            <h3>{{ day }}</h3>
+                            <div class="detail-wrapper">
+                                <dl class="date-details">
+                                        <dt class="solar-lunar-date">Solar Lunar Date</dt>
+                                        <dd class="solar-lunar-date">{{ solar-lunar-date }}</dd>
+                                        <dt class="gregorian-date">Gregorian Calendar Date</dt>
+                                        <dd class="gregorian-date">{{ gregorian-date | date_to_long_string: 'ordinal' }}</dd>
+                                </dl> 
+                            </div>    
+                        </li>
+
+                    {%- assign gregorian-date = gregorian-date | date: "%s" | plus: 86400 %}
+                    {%- assign date = date | plus: 1 -%}
+
+                    {%- endfor %}
+                    </ul>
+                    </li>
+ 

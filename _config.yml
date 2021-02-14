@@ -33,11 +33,18 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      category: "year"
+      permalink: /year/:year/index.html
+  -
+    scope:
+      path: "_posts/month"
+      type: "posts"
+    values:
+      layout: "month"
+      permalink: /year/:year/month/:title
 
 # Build settings
 markdown: kramdown
-permalink: /:categories/:title:output_ext
+
 
 sass:
   style: compressed
