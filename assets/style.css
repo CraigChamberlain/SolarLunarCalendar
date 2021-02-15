@@ -31,6 +31,26 @@ ol {
   margin: 4px 0%
 }
 
+.month-detail .days {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  width: 1000px;
+}
+.month-detail .phase, 
+.month-detail .phase:first-child {
+  border: none;
+}
+.month-detail .phase h2 {
+  width: 200px;
+}
+.month-detail .day {
+  width: 100px;
+  flex: none;
+}
+
+
 @media (min-width: 500px) and (max-width: 999px){
   .year-links li, .decade-links>li{
     flex: 1 1 10%;

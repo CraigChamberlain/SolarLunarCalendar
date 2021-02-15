@@ -1,6 +1,5 @@
 ---
 layout: home
 ---
-
-{%- assign  year = page.title | prepend: "y" -%}
+{%- assign  year = page.date | date: "%Y" | prepend: "y" -%}
 {% include calendar.html year = year %}

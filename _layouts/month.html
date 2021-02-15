@@ -3,4 +3,4 @@ layout: home
 ---
 {%- assign  year = page.date | date: "%Y" | prepend: "y" -%}
 {%- assign  month = page.title | plus: 0 -%}
-{% include month.html year="y1700" month=month %}
+{% include month.html year=year month=month %}

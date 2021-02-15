@@ -1,6 +1,6 @@
 {%- assign month = site.data.years[include.year][include.month] -%}
-<section>
-    <h2 id="month-title">Month</h2>
+<section class="month-detail">
+    <h2 id="month-title">Month - {{ page.title }}</h2>
     <ol>{% assign date = 1 %}
         {% for phase in site.data.phases %}
             {% assign index = forloop.index0 %}
@@ -12,7 +12,9 @@
                 {% assign phase-data = month.Phases | where: 'Phase', -1 | first %}
                 {% endif %}
             {% endunless %}
-            {% include phase.html phase=phase id=index phase-data=phase-data date=date month=include.month %}
+            <li class="phase phase-{{forloop.index0}}"><h2>{{ phase }} - {{ phase-data.FirstDay | date_to_long_string: 'ordinal' }}</h2>
+                {% include phase.html phase=phase id=index phase-data=phase-data date=date month=include.month %}
+            </li>
             {% assign date = date + phase.days %}
         {% endfor %}
     </ol>

@@ -42,9 +42,9 @@ defaults:
       layout: "month"
       permalink: /year/:year/month/:title
 
-# Build settings
-markdown: kramdown
-
-
 sass:
   style: compressed
+
+ignore:
+  - build.sh
+  - dev.sh
