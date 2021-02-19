@@ -45,7 +45,9 @@ defaults:
 sass:
   style: compressed
 
-ignore:
+exclude:
   - build.sh
   - dev.sh
   - generator.ps1
+  - Gemfile
+  - Gemfile.lock
