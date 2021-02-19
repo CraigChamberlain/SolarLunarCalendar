@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');
+
 body{
     color: #6a6661;
     text-align: center;
+    font-family: xanh Mono;
 }
 
 h1{
@@ -31,25 +34,149 @@ ol {
   margin: 4px 0%
 }
 
+.month-detail  {
+  margin: auto;
+  display: inline-block;
+}
+
+.month-title-block{
+  width: 98px;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 50px auto auto;
+}
+.month-title-block .year-title, .month-title-block .month-title{
+  width: 100px;
+  margin: 0;
+  text-align-last: justify;
+  text-align: justify;
+  text-justify: inter-character;
+}
+
+.month-title-block .month-title{
+  font-size: 60px;
+  margin-bottom:-2px;
+}
+
+.month-detail > ol {
+  margin: 50px;
+  padding: 0px;
+}
+
 .month-detail .days {
   display: flex;
-  width: 100%;
   justify-content: flex-start;
   align-items: center;
-  width: 1000px;
+  flex-wrap: wrap;
+  width: 100px;
+  height: 100px;
+  padding-left: 0px;
+  align-content: flex-start;
+}
+.month-detail .day-count-3 .days, .month-detail .day-count-4 .days {
+  width: 200px
+}
+.month-detail .day-count-5 .days, .month-detail .day-count-6 .days {
+  width: 300px
+}
+.month-detail .day-count-7 .days, .month-detail .day-count-8 .days {
+  width: 400px
+}
+.month-detail .day-count-9 .days, .month-detail .day-count-10 .days {
+  width: 500px
+}
+.month-detail .day-count-11 .days, .month-detail .day-count-13 .days {
+  width: 600px
+}
+.month-detail .day:nth-of-type(even) {
+  text-align: right;
+  order:1
 }
 .month-detail .phase, 
 .month-detail .phase:first-child {
   border: none;
+  height: 99px;
 }
-.month-detail .phase h2 {
-  width: 200px;
+.phase-title-block {
+  height: 98px;
+  width: 98px;
+  border: solid 1px black;
+  position: relative;
 }
-.month-detail .day {
-  width: 100px;
-  flex: none;
+.phase-title-block .gregorian-date {
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3px;
+}
+.phase-title-block img {
+  height: 98px;
+  width: 98px;
 }
 
+.month-detail .day {
+  height: 50px;
+  width: 100px;
+  flex: none;
+  text-align: left;
+  position: relative;
+
+}
+.month-detail h3::before, .month-detail h3::after {
+  width: 0;
+  height: 0;
+  border-bottom: 98px solid rgb(243, 212, 110);
+  border-left: 98px solid transparent;
+  content: "";
+  z-index: -1;
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  }
+
+.month-detail h3::after {
+  border-bottom: 100px solid rgb(0, 0, 0);
+  border-left-width: 100px;
+  z-index: -2;
+  right: 0px;
+  bottom: 0px;
+  }
+
+.month-detail .day:nth-of-type(odd) h3::before, .month-detail .day:nth-of-type(odd) h3::after {
+  bottom:unset;
+  top:1px;
+  border-bottom: unset;
+  border-left: unset;
+}
+
+.month-detail .day:nth-of-type(odd) h3::before {
+  left:0;
+  border-top: 98px solid rgb(255, 255, 255);
+  border-right: 98px solid transparent;
+}
+.month-detail .day:nth-of-type(odd) h3::after {
+  border-top: 100px solid rgb(0, 0, 0);
+  border-right: 100px solid transparent;
+  top:0px;
+}
+.month-detail .day:nth-of-type(even) h3 {
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  flex-direction: row-reverse; 
+}
+
+.month-detail .day h3{
+  padding: 5px;
+  margin: 0px;
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
 
 @media (min-width: 500px) and (max-width: 999px){
   .year-links li, .decade-links>li{
@@ -78,7 +205,7 @@ ol {
 }
 
 .active{
-  color: silver;
+  text-decoration: underline;
 }
 
 .month,.month ol{
@@ -106,6 +233,7 @@ ol {
 a, a:active, a:hover {
   text-decoration: none; 
   color: #454748;
+  font-weight: bold;
 }
 
 /* Tooltip / Dropdown */
@@ -121,6 +249,7 @@ a, a:active, a:hover {
   padding: 10px;
   text-align: left;
   z-index: 100;
+  font-size: 12px;
 }
 
 .date-details dt { 
@@ -134,11 +263,11 @@ a, a:active, a:hover {
   content: "\003A";
 }
 
-div.day:hover .date-details{
+.day:hover .date-details{
     display: block;   
 }
 
-div.day:hover h3{
+.day:hover h3{
   text-decoration: underline;  
 }
 
@@ -152,7 +281,7 @@ div.day:hover h3{
   transform: rotate(180deg);
   white-space: nowrap;
   margin-left: 2px;
-  color: silver;
+  color: #979595;
 }
 
 @media (max-width: 999px){
@@ -164,6 +293,9 @@ div.day:hover h3{
     
     .month, .month ol, .phase {
       flex-direction: column;
+    }
+    .month-detail .phase {
+      flex-direction: row;
     }
 
     .month{
@@ -223,7 +355,7 @@ div.day:hover h3{
     width: 90%;
   }
 
-  .month > h2 {
+  .month > a, .month > h2{
     width: 50px; 
     align-self: center;
   }

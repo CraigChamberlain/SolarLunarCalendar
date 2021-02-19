@@ -5,7 +5,7 @@
 {%- for day in (include.date..last-day) %}
     {%- assign solar-lunar-date = year | append: "-" | append: include.month | append: "-" | append: day -%}
     <li class="day" >
-        <h3>{{ day }} - {{ gregorian-date | date: "%a" }}</h3>
+        <h3><span class="day-date">{{ day }}</span> <span class="day-name">{{ gregorian-date | date: "%a" }}</span></h3>
         <div class="detail-wrapper">
             <dl class="date-details">
                     <dt class="solar-lunar-date">Solar Lunar Date</dt>

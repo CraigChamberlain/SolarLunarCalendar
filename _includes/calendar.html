@@ -12,7 +12,8 @@
     </li>
 {%- for month in months %}
     <li class="month" >
-        <h2 id="month-{{month.Month}}">{{ month.Month }}</h2>
+        {%- assign month-figure = month.Month | prepend: '0' | slice: -2, 2 -%}
+        <a href="{{ "/year/" | append: year | append: "/month/" | append: month-figure | relative_url }}"><h2 id="month-{{month.Month}}">{{ month-figure }}</h2></a>
         {%- assign date = 1 %}
         <ol>
             {%- assign partial-month = month.Phases | size | minus: 4 | abs -%}
